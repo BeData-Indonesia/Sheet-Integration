@@ -9,6 +9,7 @@ import SelectInput from "@/Components/SelectInput";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Resizer from "react-image-file-resizer";
+import DropZone from "@/Components/DropZone";
 const keypoint = [
     { name: "PMT Monaco" },
     { name: "Rec. Kantor Lurah" },
@@ -77,10 +78,17 @@ const resizeFile = (file) =>
 const ImageReview = ({ images }) => {
     if (images) {
         return (
-            <div className=" w-20 flex gap-5">
+            <div className="  flex gap-5 flex-wrap">
                 {images.map((image, i) => {
                     const fotoUrl = URL.createObjectURL(image);
-                    return <img key={i} src={fotoUrl} alt={image.name} />;
+                    return (
+                        <img
+                            className=" w-40 object-cover rounded-md"
+                            key={i}
+                            src={fotoUrl}
+                            alt={image.name}
+                        />
+                    );
                 })}
             </div>
         );
@@ -538,8 +546,7 @@ export default function Dashboard(props) {
                                             value="Foto Eviden"
                                         />
 
-                                        <TextInput
-                                            id="images"
+                                        <DropZone
                                             type="file"
                                             name="images"
                                             className="mt-1 block w-1/2"
