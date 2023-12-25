@@ -2606,6 +2606,7 @@ function SelectInput(_ref) {
     name: name,
     id: id
   }, props), {}, {
+    className: "border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {}), options.map(function (option) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
         value: option.value || option.name,
