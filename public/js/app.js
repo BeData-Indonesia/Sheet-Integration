@@ -3679,50 +3679,6 @@ var ImageReview = function ImageReview(_ref) {
     });
   } else return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {});
 };
-var handleImage = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(files) {
-    var fileArray, key, file;
-    return _regeneratorRuntime().wrap(function _callee$(_context) {
-      while (1) switch (_context.prev = _context.next) {
-        case 0:
-          _context.prev = 0;
-          fileArray = [];
-          _context.t0 = _regeneratorRuntime().keys(files);
-        case 3:
-          if ((_context.t1 = _context.t0()).done) {
-            _context.next = 12;
-            break;
-          }
-          key = _context.t1.value;
-          if (isNaN(key)) {
-            _context.next = 10;
-            break;
-          }
-          _context.next = 8;
-          return resizeFile(files[key]);
-        case 8:
-          file = _context.sent;
-          fileArray.push(file);
-        case 10:
-          _context.next = 3;
-          break;
-        case 12:
-          setData("image", fileArray);
-          _context.next = 17;
-          break;
-        case 15:
-          _context.prev = 15;
-          _context.t2 = _context["catch"](0);
-        case 17:
-        case "end":
-          return _context.stop();
-      }
-    }, _callee, null, [[0, 15]]);
-  }));
-  return function handleImage(_x) {
-    return _ref2.apply(this, arguments);
-  };
-}();
 function Dashboard(props) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (props.flash.message == "success") {
@@ -3737,6 +3693,50 @@ function Dashboard(props) {
     post = _useForm.post,
     processing = _useForm.processing,
     errors = _useForm.errors;
+  var handleImage = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(files) {
+      var fileArray, key, file;
+      return _regeneratorRuntime().wrap(function _callee$(_context) {
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            _context.prev = 0;
+            fileArray = [];
+            _context.t0 = _regeneratorRuntime().keys(files);
+          case 3:
+            if ((_context.t1 = _context.t0()).done) {
+              _context.next = 12;
+              break;
+            }
+            key = _context.t1.value;
+            if (isNaN(key)) {
+              _context.next = 10;
+              break;
+            }
+            _context.next = 8;
+            return resizeFile(files[key]);
+          case 8:
+            file = _context.sent;
+            fileArray.push(file);
+          case 10:
+            _context.next = 3;
+            break;
+          case 12:
+            setData("images", fileArray);
+            _context.next = 17;
+            break;
+          case 15:
+            _context.prev = 15;
+            _context.t2 = _context["catch"](0);
+          case 17:
+          case "end":
+            return _context.stop();
+        }
+      }, _callee, null, [[0, 15]]);
+    }));
+    return function handleImage(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
   var submit = function submit(e) {
     e.preventDefault();
     post(route("dashboard"));

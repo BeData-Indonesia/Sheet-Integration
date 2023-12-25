@@ -87,19 +87,6 @@ const ImageReview = ({ images }) => {
     } else return <div></div>;
 };
 
-const handleImage = async (files) => {
-    try {
-        const fileArray = [];
-        for (var key in files) {
-            if (!isNaN(key)) {
-                const file = await resizeFile(files[key]);
-                fileArray.push(file);
-            }
-        }
-        setData("image", fileArray);
-    } catch (error) {}
-};
-
 export default function Dashboard(props) {
     useEffect(() => {
         if (props.flash.message == "success") {
@@ -110,6 +97,19 @@ export default function Dashboard(props) {
     }, [props]);
 
     const { data, setData, post, processing, errors } = useForm({});
+
+    const handleImage = async (files) => {
+        try {
+            const fileArray = [];
+            for (var key in files) {
+                if (!isNaN(key)) {
+                    const file = await resizeFile(files[key]);
+                    fileArray.push(file);
+                }
+            }
+            setData("images", fileArray);
+        } catch (error) {}
+    };
 
     const submit = (e) => {
         e.preventDefault();
