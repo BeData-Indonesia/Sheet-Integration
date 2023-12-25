@@ -20,7 +20,6 @@ class GoogleSheetController extends Controller
    public function handleImage($image) {
         $filepath  = $image->store("uploads");
         $imageInput = '=IMAGE("'.env('PRODUCTION_URL',"http://localhost:8000")."/storage/".$filepath.'")';
-        Log::info($imageInput);
         return $imageInput;
     }
     public function sheetOperation(Request $request)
